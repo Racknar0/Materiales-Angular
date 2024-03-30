@@ -1,0 +1,20 @@
+<h1>DBZ Personajes</h1>
+
+<div class="row flex">
+  <!-- LISTADO -->
+  <div class="col">
+    <dbz-list
+      [characterList]="characters"
+      (OnDelete)="onDeleteCharacters($event)"
+    ></dbz-list>
+  </div>
+
+  <!-- FORMULARIO -->
+  <div class="col">
+    <dbz-add-character
+      (onNewCharacter)="onNewCharacter($event)"
+    ></dbz-add-character>
+  </div>
+</div>
+
+<pre>{{ characters | json }}</pre>

@@ -1,0 +1,35 @@
+<h4>Listado</h4>
+<ul class="list-group">
+  <li
+    *ngFor="
+      let character of characterList;
+      let i = index;
+      let isFirst = first;
+      let isLast = last;
+      let isEven = even;
+      let isOdd = odd;
+      let count = count;
+      "
+    class="list-group-item"
+    [ngClass]="{
+      'list-group-item-dark': isLast,
+      'list-group-item-primary': isEven,
+    }"
+    >
+    <!-- [ngClass]="isLast ? 'list-group-item-success' : ''" -->
+    <span class="text-primary">{{ i }} :</span>
+
+    <strong> Name:</strong> {{ character.name }} - <strong>Power</strong>:
+
+    <span>{{ character.power }}</span>
+
+    <div>Es el primero: {{ isFirst }}</div>
+    <div>Es el ultimo: {{ isLast }}</div>
+    <div>Es par: {{ isEven }}</div>
+    <div>Es impar: {{ isOdd }}</div>
+    <div>Tamaño del iterable: {{ count }}</div>
+    <div>
+      <button (click)="onDeleteCharacter(character?.id)" class="btn btn-danger mt-2 mb-2">Eliminar</button>
+    </div>
+  </li>
+</ul>
